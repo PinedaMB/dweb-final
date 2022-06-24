@@ -1,0 +1,13 @@
+#cardLogin {
+    max-width: 450px;
+}
+
+#imgCardLogin {
+    transform: translate(-50%, -50%);
+}
+
+#btn-login {
+    transform: translate(-50%, 100%);
+    border-radius: 0 0 2em 2em;
+    padding: 3% 12%;
+}

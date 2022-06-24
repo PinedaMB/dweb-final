@@ -1,0 +1,95 @@
+<p-dialog header="Registro Exitoso" [(visible)]="display" [modal]="true" [style]="{width: '50vw'}"
+    [draggable]="false" [resizable]="false">
+    <p class="m-0">Tu cuenta ha sido registrada satisfactoriamente, en breve recibirá un correo para activar su cuenta!</p>
+        <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" (click)="navigateLogin()" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+</p-dialog>
+
+<p-toast key="toast" position="bottom-center"></p-toast>
+
+<div id="registro" class="mt-3 mx-auto">
+    <p-tabView>
+        <p-tabPanel header="Información de la cuenta">
+            <div class="pt-3">
+                <span class="p-float-label mb-4">
+                    <input type="text" pInputText class="w-full" [(ngModel)]="newUser.nombre">
+                    <label for="float-input">Nombre</label>
+                </span>
+                <div class="mb-4 flex gap-1">
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="w-full" [(ngModel)]="newUser.apellido_paterno">
+                        <label for="float-input">Apellido Paterno</label>
+                    </span>
+                    <span class="p-float-label">
+                        <input type="text" pInputText class="w-full" [(ngModel)]="newUser.apellido_materno">
+                        <label for="float-input">Apellido Materno</label>
+                    </span>
+                </div>
+                <span class="p-float-label mb-4">
+                    <input type="email" pInputText class="w-full" [(ngModel)]="newUser.correo">
+                    <label for="float-input">Correo</label>
+                </span>
+                <div class="mb-4 flex gap-1">
+                    <span class="p-float-label">
+                        <input type="password" pInputText class="w-full" [(ngModel)]="newUser.password">
+                        <label for="float-input">Contraseña</label>
+                    </span>
+                    <span class="p-float-label">
+                        <input type="password" pInputText class="w-full">
+                        <label for="float-input">Repetir Contraseña</label>
+                    </span>
+                </div>
+                <button pButton class="p-button-raised p-button-help" label="Siguiente"></button>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Información personal">
+            <div class="pt-3">
+                <span class="p-float-label mb-4">
+                    <input type="number" pInputText class="w-full" [(ngModel)]="newUser.telefono">
+                    <label for="float-input">Telefono</label>
+                </span>
+                <h5>Sexo</h5>
+                <div class="mb-4 flex justify-content-around gap-1">
+                    <div class="field-radiobutton">
+                        <p-radioButton inputId="hombre" value="hombre" name="sexo" [(ngModel)]="newUser.sexo">
+                        </p-radioButton>
+                        <label for="hombre">Hombre</label>
+                    </div>
+                    <div class="field-radiobutton">
+                        <p-radioButton inputId="mujer" value="mujer" name="sexo" [(ngModel)]="newUser.sexo">
+                        </p-radioButton>
+                        <label for="mujer">Mujer</label>
+                    </div>
+                    <div class="field-radiobutton">
+                        <p-radioButton inputId="ne" value="ne" name="sexo" [(ngModel)]="newUser.sexo"></p-radioButton>
+                        <label for="ne">Prefiero no contestar</label>
+                    </div>
+                </div>
+
+                <h5>Estado civil</h5>
+                <div class="mb-4 flex justify-content-around gap-1">
+                    <div class="field-radiobutton">
+                        <p-radioButton inputId="soltero" value="soltero" name="estado_civil" value="soltero"
+                            [(ngModel)]="newUser.estado_civil"></p-radioButton>
+                        <label for="soltero">Soltero</label>
+                    </div>
+                    <div class="field-radiobutton">
+                        <p-radioButton inputId="casado" value="casado" name="estado_civil"
+                            [(ngModel)]="newUser.estado_civil"></p-radioButton>
+                        <label for="casado">Casado</label>
+                    </div>
+                    <div class="field-radiobutton">
+                        <p-radioButton inputId="ne_es" value="ne" name="estado_civil" [(ngModel)]="newUser.estado_civil">
+                        </p-radioButton>
+                        <label for="ne_es">Prefiero no contestar</label>
+                    </div>
+                </div>
+
+                <div class="flex justify-content-center">
+                    <button (click)="register()" pButton class="p-button-outlined p-button-help" label="Registrar"></button>
+                </div>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+</div>

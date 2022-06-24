@@ -1,0 +1,15 @@
+<p-menubar>
+    <ng-template pTemplate="start" class="flex">
+        <img src="assets/img/logo-color.png" width="200"
+            class="mr-2 cursor-pointer" routerLink="/">
+    </ng-template>
+    <ng-template #notLogged pTemplate="end">
+        <button pButton label="Ingresar" icon="pi pi-user" class="p-button-raised mr-2" routerLink="/ingresar"></button>
+        <button label="Registrarse" icon="pi pi-user-plus" pButton class="p-button-outlined mr-2" routerLink="/registrarse"></button>
+    </ng-template>
+
+    <ng-template *ngIf="isLogged; else notLogged" pTemplate="end">
+        <p-avatar size="large" icon="pi pi-user" shape="circle" class="mr-2 cursor-pointer" (click)="menu.toggle($event)"></p-avatar>
+        <p-menu #menu [popup]="true" [model]="userItems"></p-menu>
+    </ng-template>
+</p-menubar>

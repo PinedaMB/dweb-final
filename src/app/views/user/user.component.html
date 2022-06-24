@@ -1,0 +1,41 @@
+<p-toast key="toast" position="bottom-center"></p-toast>
+
+<p-confirmPopup></p-confirmPopup>
+
+<div class="cont-user mb-8">
+    <p-card>
+        <div class="flex justify-content-between gap-6">
+            <p-image src="https://cdn-icons-png.flaticon.com/512/1053/1053244.png?w=360" class="avatar ml-5" width="100"></p-image>
+            <div class="w-full">
+                <span class="p-float-label mb-4">
+                    <input [(ngModel)]="userModel.nombre" id="nombre" type="text" pInputText class="w-full"> 
+                    <label for="nombre">Nombre</label>
+                </span>
+
+                <span class="p-float-label mb-4">
+                    <input id="apellidp" [(ngModel)]="userModel.apellido_paterno" type="text" pInputText class="w-full"> 
+                    <label for="apellidp">Apellido Paterno</label>
+                </span>
+
+                <span class="p-float-label mb-4">
+                    <input id="apellidom" [(ngModel)]="userModel.apellido_materno" type="text" pInputText class="w-full"> 
+                    <label for="apellidom">Apellido Materno</label>
+                </span>
+
+                <span class="p-float-label mb-4">
+                    <input id="noTelefono" [(ngModel)]="userModel.telefono" type="number" pInputText class="w-full"> 
+                    <label for="noTelefono">Número de telefono</label>
+                </span>
+            </div>
+        </div>
+        <button pButton (click)="updateUser()" label="Guardar" class="p-button-outlined w-full"></button>
+    </p-card>
+</div>
+
+<p-divider align="center" type="dashed" class="mt-8">
+    <b class="text-red-500">Danger Zone</b>
+</p-divider>
+
+<div class="text-center py-4">
+    <button (click)="confirmDelete($event)" pButton class="p-button-danger" label="Eliminar Cuenta"></button>
+</div>
